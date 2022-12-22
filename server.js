@@ -35,7 +35,13 @@ db.once('open', () => {
 });
 
 const app = express();
-app.use(cors());
+app.use(
+  cors(
+    cors({
+      origin: '*',
+    })
+  )
+);
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
